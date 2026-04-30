@@ -1,35 +1,40 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { IMAGES } from "../../constants/images";
 
 export default function StorySection() {
   return (
-    <section className='px-6 py-32 text-center text-white bg-coffee-800'>
+    <section className='relative px-6 py-32 overflow-hidden text-center text-white'>
+      <div
+        className='absolute inset-0 bg-center bg-cover'
+        style={{ backgroundImage: `url('${IMAGES.storyBg}')` }}
+      />
+
+      {/* Dark overlay */}
+      <div className='absolute inset-0 ' />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className='max-w-2xl mx-auto'
+        className='relative z-10 max-w-2xl mx-auto'
       >
-        <p className='text-gold text-xs tracking-[0.4em] uppercase mb-6'>
-          Câu chuyện của chúng tôi
-        </p>
+        <p className='section-label'>Câu chuyện của chúng tôi</p>
 
-        <h2 className='mb-8 font-serif text-4xl leading-tight md:text-5xl'>
+        <h2 className='mb-8 leading-tight section-title-light'>
           Mỗi tách cà phê <br />
           <em>là một khoảnh khắc</em>
         </h2>
 
-        <p className='mb-10 text-lg leading-relaxed text-white/50'>
-          Kohi ra đời từ tình yêu với văn hóa cà phê Nhật Bản — sự tối giản,
-          tinh tế và chú trọng từng chi tiết nhỏ. Chúng tôi mang triết lý đó vào
-          từng ly cà phê được pha chế thủ công mỗi ngày.
+        <p className='mb-10 text-lg leading-relaxed text-white/90'>
+          KOHI được hình thành từ tình yêu dành cho văn hóa cà phê Nhật Bản, nơi
+          đề cao sự tối giản, tinh tế và sự chăm chút đến từng chi tiết. Triết
+          lý này được chúng tôi thể hiện trong từng ly cà phê thủ công, với sự
+          tập trung vào chất lượng, độ chính xác và trải nghiệm thưởng thức trọn
+          vẹn mỗi ngày.
         </p>
 
-        <Link
-          to='/menu'
-          className='inline-block px-10 py-3 text-sm tracking-widest uppercase transition-colors duration-300 border border-gold text-gold hover:bg-gold hover:text-coffee-950'
-        >
+        <Link to='/menu' className='inline-block btn-outline-gold'>
           Xem toàn bộ menu
         </Link>
       </motion.div>

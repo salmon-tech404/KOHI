@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kohi — Project Details</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #1a0e0d;
+      color: #e8d5b7;
+      min-height: 100vh;
+      padding: 48px 24px;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    /* Header */
+    header { text-align: center; margin-bottom: 64px; }
+    header h1 {
+      font-size: 56px;
+      font-family: Georgia, serif;
+      color: #fff;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    header p { color: #d4a853; font-size: 12px; letter-spacing: 0.4em; text-transform: uppercase; }
+
+    /* Stack */
+    .stack {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 64px;
+    }
+    .stack-item {
+      background: #2c1810;
+      border: 1px solid #3d2219;
+      padding: 16px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .stack-item .label { font-size: 10px; color: #d4a853; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 6px; }
+    .stack-item .value { font-size: 14px; color: #fff; }
+
+    /* Phase */
+    .phase { margin-bottom: 48px; }
+
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #3d2219;
+    }
+    .phase-number {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      color: #d4a853;
+      opacity: 0.4;
+      line-height: 1;
+      min-width: 56px;
+    }
+    .phase-title { font-family: Georgia, serif; font-size: 24px; color: #fff; }
+    .phase-status {
+      margin-left: auto;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .status-done     { background: #1a3a1a; color: #4ade80; border: 1px solid #4ade80; }
+    .status-next     { background: #3a2a10; color: #d4a853; border: 1px solid #d4a853; }
+    .status-upcoming { background: #2c1810; color: #6b4040; border: 1px solid #6b4040; }
+
+    /* Task list */
+    .task-group { margin-bottom: 20px; }
+    .task-group-title {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #d4a853;
+      margin-bottom: 10px;
+    }
+    .task {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #2c1810;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .task:last-child { border-bottom: none; }
+    .task .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .done   .check { background: #4ade80; }
+    .todo   .check { background: transparent; border: 1.5px solid #6b4040; }
+    .task .text { color: #c8a882; }
+    .done .text { color: #6b4040; text-decoration: line-through; }
+    .task .note { font-size: 12px; color: #6b4040; margin-top: 2px; }
+
+    /* Note box */
+    .note-box {
+      background: #2c1810;
+      border-left: 3px solid #d4a853;
+      padding: 16px 20px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #c8a882;
+      line-height: 1.6;
+    }
+    .note-box strong { color: #d4a853; }
+
+    hr.divider { border: none; border-top: 1px solid #2c1810; margin: 48px 0; }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #6b4040;
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid #2c1810;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Kohi</h1>
+    <p>コーヒー &nbsp;—&nbsp; Project Roadmap</p>
+  </header>
+
+  <!-- Tech Stack -->
+  <div class="stack">
+    <div class="stack-item"><div class="label">Frontend</div><div class="value">React + Vite</div></div>
+    <div class="stack-item"><div class="label">Styling</div><div class="value">Tailwind CSS v4</div></div>
+    <div class="stack-item"><div class="label">Animation</div><div class="value">Framer Motion</div></div>
+    <div class="stack-item"><div class="label">State</div><div class="value">Zustand</div></div>
+    <div class="stack-item"><div class="label">HTTP</div><div class="value">Axios</div></div>
+    <div class="stack-item"><div class="label">Backend</div><div class="value">Express v5</div></div>
+    <div class="stack-item"><div class="label">Database</div><div class="value">MongoDB Atlas</div></div>
+    <div class="stack-item"><div class="label">ODM</div><div class="value">Mongoose</div></div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">01</div>
+      <div class="phase-title">Foundation &amp; Homepage</div>
+      <div class="phase-status status-done">Hoàn thành</div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Setup</div>
+      <div class="task done"><div class="check"></div><div><div class="text">Khởi tạo project (React + Vite + Tailwind + Express + MongoDB)</div></div></div>
+      <div class="task done"><div class="check"></div><div><div class="text">Cấu hình Tailwind v4 với custom colors &amp; fonts</div></div></div>
+      <div class="task done"><div class="check"></div><div><div class="text">Kết nối MongoDB Atlas</div></div></div>
+      <div class="task done"><div class="check"></div><div><div class="text">Cấu trúc thư mục feature-based (layouts / sections / ui / features)</div></div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Homepage UI</div>
+      <div class="task done"><div class="check"></div><div><div class="text">Navbar — transparent → blur on scroll</div></div></div>
+      <div class="task done"><div class="check"></div><div><div class="text">Hero — fullscreen ảnh, animation fade-in, 2 CTA buttons</div></div></div>
+      <div class="task done"><div class="check"></div><div><div class="text">WhyUs — 3 điểm nổi bật với số trang trí</div></div></div>
+      <div class="task done"><div class="check"></div><div><div class="text">MenuPreview — grid 4 sản phẩm, hover effect</div></div></div>
+      <div class="task done"><div class="check"></div><div><div class="text">StorySection — câu chuyện thương hiệu</div></div></div>
+      <div class="task done"><div class="check"></div><div><div class="text">Footer — giờ mở cửa, địa chỉ, liên hệ</div></div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Cần làm thêm (Homepage)</div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Spotlight section — featured product, stats, split layout</div><div class="note">Thêm giữa MenuPreview và StorySection. Tạm dùng data tĩnh, Phase 5 sẽ dynamic.</div></div></div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PHASE 2 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">02</div>
+      <div class="phase-title">Giỏ hàng &amp; Đặt hàng</div>
+      <div class="phase-status status-next">Tiếp theo</div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Cart</div>
+      <div class="task todo"><div class="check"></div><div><div class="text">cartStore.js — Zustand store (items, isOpen, addItem, removeItem, updateQuantity)</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">CartDrawer.jsx — panel slide-in từ phải, backdrop blur</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Cập nhật Navbar — hiển thị số lượng item, click mở CartDrawer</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Cập nhật ProductCard — "Thêm vào giỏ" gọi addItem() thật sự</div></div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Checkout</div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Trang Checkout — form: tên, SĐT, giờ lấy, ghi chú</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">POST /api/orders — gửi đơn lên backend</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Trang OrderSuccess — xác nhận đơn hàng + thông tin</div></div></div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PHASE 3 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">03</div>
+      <div class="phase-title">Backend API &amp; Kết nối</div>
+      <div class="phase-status status-upcoming">Sắp tới</div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Backend</div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Product model + routes (GET /api/products)</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Order model + routes (POST /api/orders, GET /api/orders)</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Seed script — nhồi data sản phẩm mẫu vào MongoDB</div></div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Frontend — kết nối API</div>
+      <div class="task todo"><div class="check"></div><div><div class="text">api/axios.js — axios instance với baseURL</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">api/products.js — hàm gọi API lấy sản phẩm</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">api/orders.js — hàm gọi API tạo đơn hàng</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">hooks/useProducts.js — custom hook fetch sản phẩm</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Thay data tĩnh (constants/menu.js) bằng API call thật</div></div></div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PHASE 4 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">04</div>
+      <div class="phase-title">Trang Menu</div>
+      <div class="phase-status status-upcoming">Sắp tới</div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">UI / UX</div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Menu page — hero + grid sản phẩm đầy đủ</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Filter theo category — Coffee / Tea / Pastry / All</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Transition mượt khi switch category (Framer Motion layout)</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Modal xem nhanh chi tiết sản phẩm</div></div></div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PHASE 5 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">05</div>
+      <div class="phase-title">Admin Dashboard</div>
+      <div class="phase-status status-upcoming">Sắp tới</div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Quản lý đơn hàng</div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Trang /admin — xem danh sách đơn hàng hôm nay</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Cập nhật trạng thái: pending → confirmed → ready → done</div></div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Quản lý sản phẩm</div>
+      <div class="task todo"><div class="check"></div><div><div class="text">CRUD sản phẩm — thêm, sửa, xóa, ẩn/hiện</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Upload ảnh sản phẩm</div></div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Quản lý nội dung (Mini CMS)</div>
+      <div class="task todo"><div class="check"></div><div><div class="text">ContentBlock model — lưu nội dung Spotlight, Banner trong MongoDB</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Form chỉnh sửa Spotlight — title, ảnh, mô tả, stats</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Blog posts — thêm/sửa/xóa bài viết</div></div></div>
+      <div class="task todo"><div class="check"></div><div><div class="text">Frontend render nội dung dynamic từ API thay vì hardcode</div></div></div>
+    </div>
+
+    <div class="note-box">
+      <strong>Lưu ý:</strong> Admin dashboard không cần JWT phức tạp.
+      Có thể dùng simple password hoặc IP whitelist để bảo vệ route /admin.
+    </div>
+  </div>
+
+  <footer>
+    <p>Kohi &nbsp;·&nbsp; コーヒー &nbsp;·&nbsp; Cập nhật lần cuối: 30/04/2025</p>
+  </footer>
+
+</div>
+</body>
+</html>

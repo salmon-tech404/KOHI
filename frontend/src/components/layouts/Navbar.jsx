@@ -16,34 +16,25 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
+          ? "bg-white/30 backdrop-blur-md shadow-sm py-4"
           : "bg-transparent py-5"
       }`}
     >
       <div className='flex items-center justify-between max-w-6xl px-6 mx-auto'>
-        <Link
-          to='/'
-          className='font-serif text-2xl font-bold tracking-wider text-white'
-        >
+        <Link to='/' className='nav-logo'>
           Kohi
         </Link>
 
         <div className='flex items-center gap-8'>
-          <Link
-            to='/'
-            className='text-sm tracking-widest uppercase transition-colors text-white/80 hover:text-white'
-          >
+          <Link to='/' className='nav-link'>
             Trang chủ
           </Link>
-          <Link
-            to='/menu'
-            className='text-sm tracking-widest uppercase transition-colors text-white/80 hover:text-white'
-          >
+          <Link to='/menu' className='nav-link'>
             Menu
           </Link>
         </div>
 
-        <button className='relative p-2'>
+        <button className='relative p-2 cursor-pointer'>
           <svg
             width='22'
             height='22'

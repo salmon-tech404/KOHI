@@ -14,12 +14,8 @@ export default function MenuPreview() {
           transition={{ duration: 0.6 }}
           className='mb-16 text-center'
         >
-          <p className='text-gold text-xs tracking-[0.4em] uppercase mb-3'>
-            Tinh tuyển
-          </p>
-          <h2 className='font-serif text-5xl text-coffee-700'>
-            Thức uống nổi bật
-          </h2>
+          <p className='section-label'>Tinh tuyển</p>
+          <h2 className='section-title'>Thức uống nổi bật</h2>
         </motion.div>
 
         <div className='grid grid-cols-2 gap-6 mb-12 md:grid-cols-4'>
@@ -37,10 +33,7 @@ export default function MenuPreview() {
         </div>
 
         <div className='text-center'>
-          <Link
-            to='/menu'
-            className='inline-block px-10 py-3 text-sm tracking-widest uppercase transition-colors duration-300 border border-coffee-700 text-coffee-700 hover:bg-coffee-700 hover:text-white'
-          >
+          <Link to='/menu' className='inline-block btn-outline-dark'>
             Xem toàn bộ menu
           </Link>
         </div>

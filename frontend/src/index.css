@@ -1,6 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap");
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+}
+
 @theme {
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
@@ -13,13 +22,72 @@
   --color-coffee-200: #e8d5b7;
   --color-gold: #d4a853;
   --color-cream: #faf6f0;
+  --color-black: #000000;
 }
 
-html {
-  scroll-behavior: smooth;
+@layer components {
+  /* ── Section headers ── */
+  .section-label {
+    @apply text-gold text-base tracking-[0.4em] uppercase mb-3;
+  }
+
+  .section-title {
+    @apply font-serif text-5xl text-coffee-700;
+  }
+
+  .section-title-light {
+    @apply font-serif text-5xl text-white;
+  }
+
+  /* ── Navbar ── */
+  .nav-logo {
+    @apply font-serif text-3xl font-bold tracking-wider text-white;
+  }
+
+  .nav-link {
+    @apply text-lg tracking-widest uppercase transition-colors text-white/80 hover:text-white hover:underline hover:underline-offset-4 hover:decoration-2;
+  }
+
+  /* ── Whyus / Item text ── */
+  .item-title {
+    @apply font-serif text-2xl text-white;
+  }
+
+  .item-desc {
+    @apply text-sm leading-relaxed text-white/50;
+  }
+
+  .card-label {
+    @apply text-xs tracking-widest uppercase text-coffee-600/60;
+  }
+
+  .card-title {
+    @apply font-serif text-lg text-coffee-700;
+  }
+
+  .card-price {
+    @apply text-sm font-medium text-gold;
+  }
+
+  /* ── Footer ── */
+  .footer-heading {
+    @apply text-xs tracking-widest uppercase text-white mb-4;
+  }
 }
 
-body {
-  font-family: var(--font-sans);
-  background-color: var(--color-cream);
+/* ── Buttons ── */
+.btn-primary {
+  @apply px-10 py-4 bg-gold text-coffee-950 text-base uppercase tracking-widest font-medium hover:bg-yellow-400 transition-colors;
+}
+
+.btn-outline-dark {
+  @apply px-8 py-3 border border-coffee-700 text-coffee-700 text-sm uppercase tracking-widest hover:bg-coffee-700 hover:text-white transition-colors duration-300;
+}
+
+.btn-outline-light {
+  @apply px-10 py-4 border border-white/30 text-white text-base uppercase tracking-widest hover:bg-white/10 transition-colors;
+}
+
+.btn-outline-gold {
+  @apply px-10 py-3 border border-gold text-gold text-sm uppercase tracking-widest hover:bg-gold hover:text-coffee-950 transition-colors duration-300;
 }

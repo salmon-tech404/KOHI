@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
 
   return (
     <div className='cursor-pointer group'>
-      <div className='relative overflow-hidden aspect-[3/4] mb-4 bg-coffee-200/20'>
+      <div className='relative overflow-hidden aspect-3/4 mb-4 bg-coffee-200/20'>
         <img
           src={product.image}
           alt={product.name}
@@ -45,15 +45,9 @@ export default function ProductCard({ product }) {
         </button>
       </div>
 
-      <p className='mb-1 text-xs tracking-widest uppercase text-coffee-600/60'>
-        {product.category}
-      </p>
-      <h3 className='mb-1 font-serif text-lg text-coffee-700'>
-        {product.name}
-      </h3>
-      <p className='text-sm font-medium text-gold'>
-        {product.price.toLocaleString("vi-VN")}đ
-      </p>
+      <p className='mb-1 card-label'>{product.category}</p>
+      <h3 className='mb-1 card-title'>{product.name}</h3>
+      <p className='card-price'>{product.price.toLocaleString("vi-VN")}đ</p>
     </div>
   );
 }

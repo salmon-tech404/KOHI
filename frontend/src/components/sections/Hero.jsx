@@ -11,7 +11,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className='text-gold text-xs tracking-[0.4em] uppercase mb-4'
+          className='text-gold text-base tracking-[0.4em] uppercase mb-4'
         >
           Thưởng thức từng giọt cà phê
         </motion.p>
@@ -31,7 +31,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className='mb-10 font-serif text-2xl italic text-white/50'
         >
-          コーヒー
+          じゃ、コーヒーでも
         </motion.p>
 
         <motion.div
@@ -40,16 +40,10 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className='flex justify-center gap-4'
         >
-          <Link
-            to='/menu'
-            className='px-8 py-3 text-sm font-medium tracking-widest uppercase transition-colors bg-gold text-coffee-950 hover:bg-yellow-400'
-          >
+          <Link to='/menu' className='btn-primary'>
             Xem Menu
           </Link>
-          <a
-            href='#featured'
-            className='px-8 py-3 text-sm tracking-widest text-white uppercase transition-colors border border-white/30 hover:bg-white/10'
-          >
+          <a href='#featured' className='btn-outline-light'>
             Khám phá
           </a>
         </motion.div>

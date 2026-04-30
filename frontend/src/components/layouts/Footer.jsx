@@ -11,7 +11,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className='mb-4 text-xs tracking-widest text-white uppercase'>
+          <h4 className='footer-heading'>
             Giờ mở cửa
           </h4>
           <div className='space-y-2 text-sm'>
@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className='mb-4 text-xs tracking-widest text-white uppercase'>
+          <h4 className='footer-heading'>
             Liên hệ
           </h4>
           <div className='space-y-2 text-sm'>
