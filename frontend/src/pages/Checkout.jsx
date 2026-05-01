@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useCartStore from "../store/cartStore";
 import Navbar from "../components/layouts/Navbar";
+import { createOrder } from "../api/orders";
 
 export default function Checkout() {
   const { items, getTotalPrice, clearCart } = useCartStore();
@@ -21,8 +22,7 @@ export default function Checkout() {
   };
 
   //Xử lý submit
-  const handleSubmit = (e) => {
-    //chặn reload trang
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const [h, m] = form.pickupTime.split(":").map(Number);
     const minutes = h * 60 + m;
@@ -30,7 +30,26 @@ export default function Checkout() {
       alert("Vui lòng chọn giờ từ 10:00 đến 20:00");
       return;
     }
-    navigate("/order-success");
+    try {
+      await createOrder({
+        customerName: form.name,
+        phone: form.phone,
+        pickupTime: form.pickupTime,
+        note: form.note,
+        items: items.map((i) => ({
+          product: i._id,
+          name: i.name,
+          price: i.price,
+          qty: i.qty,
+        })),
+        total: getTotalPrice(),
+      });
+      clearCart();
+      navigate("/order-success");
+    } catch (error) {
+      console.error("Đặt hàng thất bại:", error);
+      alert("Có lỗi xảy ra, vui lòng thử lại.");
+    }
   };
 
   return (
@@ -67,8 +86,9 @@ export default function Checkout() {
               </label>
               <input
                 type='text'
+                name='phone'
                 required
-                placeholder='0350000000'
+                placeholder='035xxxxxxx'
                 className='w-full px-2 py-2 text-base bg-white border border-coffee-200 focus:outline-none focus:border-gold'
                 onChange={handleChange}
               />
@@ -99,6 +119,7 @@ export default function Checkout() {
               </label>
               <textarea
                 type='text'
+                name='note'
                 rows={10}
                 placeholder='Xin cho ít ngọt (20%), đá 30%...'
                 className='w-full px-4 py-3 text-sm bg-white border resize-none border-coffee-200 focus:outline-none focus:border-gold'
