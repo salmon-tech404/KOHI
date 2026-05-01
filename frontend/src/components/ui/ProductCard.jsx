@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
 import useCartStore from "../../store/cartStore";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, onSelect }) {
   const [added, setAdded] = useState(false);
   const addItem = useCartStore((state) => state.addItem);
 
@@ -14,7 +14,7 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className='cursor-pointer group'>
+    <div className='cursor-pointer group' onClick={onSelect}>
       <div className='relative mb-4 overflow-hidden aspect-3/4 bg-coffee-200/20'>
         <img
           src={product.image}
@@ -22,7 +22,10 @@ export default function ProductCard({ product }) {
           className='object-cover w-full h-full transition-transform duration-700 group-hover:scale-110'
         />
         <button
-          onClick={handleAdd}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAdd();
+          }}
           className='absolute px-6 py-2 text-xs tracking-widest uppercase transition-transform duration-300 -translate-x-1/2 translate-y-12 bg-white cursor-pointer bottom-4 left-1/2 group-hover:translate-y-0 text-coffee-700 hover:bg-gold hover:text-white whitespace-nowrap'
         >
           <AnimatePresence mode='wait'>
@@ -64,4 +67,5 @@ ProductCard.propTypes = {
     price: PropTypes.number.isRequired,
     category: PropTypes.string,
   }).isRequired,
+  onSelect: PropTypes.func,
 };

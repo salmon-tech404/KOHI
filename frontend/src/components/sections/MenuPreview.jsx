@@ -24,7 +24,7 @@ export default function MenuPreview() {
         {error && <p className='text-center text-red-400'>{error}</p>}
 
         <div className='grid grid-cols-2 gap-6 mb-12 md:grid-cols-4'>
-          {products.map((product, i) => (
+          {products.slice(0, 4).map((product, i) => (
             <motion.div
               key={product._id}
               initial={{ opacity: 0, y: 40 }}

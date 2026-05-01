@@ -620,36 +620,36 @@
         <div class="phase-header">
           <div class="phase-number">04</div>
           <div class="phase-title">Trang Menu</div>
-          <div class="phase-status status-next">Tiếp theo</div>
+          <div class="phase-status status-done">Hoàn thành</div>
         </div>
 
         <div class="task-group">
           <div class="task-group-title">UI / UX</div>
-          <div class="task todo">
+          <div class="task done">
             <div class="check"></div>
             <div>
-              <div class="text">Menu page — hero + grid sản phẩm đầy đủ</div>
+              <div class="text">Menu page — hero editorial + grid sản phẩm đầy đủ (10 items)</div>
             </div>
           </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Filter theo category — Coffee / Tea / Pastry / All
-              </div>
-            </div>
-          </div>
-          <div class="task todo">
+          <div class="task done">
             <div class="check"></div>
             <div>
               <div class="text">
-                Transition mượt khi switch category (Framer Motion layout)
+                Thanh filter: ô tìm kiếm + tabs category (Tất cả / Espresso / Cold Brew / Non-Coffee)
               </div>
             </div>
           </div>
-          <div class="task todo">
+          <div class="task done">
             <div class="check"></div>
-            <div><div class="text">Modal xem nhanh chi tiết sản phẩm</div></div>
+            <div>
+              <div class="text">
+                Transition mượt khi switch category (Framer Motion layout + AnimatePresence)
+              </div>
+            </div>
+          </div>
+          <div class="task done">
+            <div class="check"></div>
+            <div><div class="text">Modal xem nhanh chi tiết sản phẩm + thêm giỏ hàng</div></div>
           </div>
         </div>
       </div>
@@ -661,7 +661,46 @@
         <div class="phase-header">
           <div class="phase-number">05</div>
           <div class="phase-title">Admin Dashboard</div>
-          <div class="phase-status status-upcoming">Sắp tới</div>
+          <div class="phase-status status-next">Tiếp theo</div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Đăng nhập</div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Trang /admin/login — form username + password</div>
+              <div class="note">JWT token lưu vào httpOnly cookie hoặc localStorage</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Protected route — chặn truy cập /admin nếu chưa đăng nhập</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Logout — xóa token, redirect về /admin/login</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Dashboard tổng quan</div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Sidebar navigation — Orders / Products / Content / Settings</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Stats cards — tổng đơn hôm nay, doanh thu, sản phẩm đang bán</div>
+            </div>
+          </div>
         </div>
 
         <div class="task-group">
@@ -669,17 +708,19 @@
           <div class="task todo">
             <div class="check"></div>
             <div>
-              <div class="text">
-                Trang /admin — xem danh sách đơn hàng hôm nay
-              </div>
+              <div class="text">Danh sách đơn hàng — filter theo ngày, trạng thái</div>
             </div>
           </div>
           <div class="task todo">
             <div class="check"></div>
             <div>
-              <div class="text">
-                Cập nhật trạng thái: pending → confirmed → ready → done
-              </div>
+              <div class="text">Cập nhật trạng thái: pending → confirmed → ready → done</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Xem chi tiết từng đơn — items, ghi chú, giờ lấy hàng</div>
             </div>
           </div>
         </div>
@@ -694,7 +735,15 @@
           </div>
           <div class="task todo">
             <div class="check"></div>
-            <div><div class="text">Upload ảnh sản phẩm</div></div>
+            <div>
+              <div class="text">Upload ảnh sản phẩm (Cloudinary hoặc local)</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Toggle available — bật/tắt hiển thị sản phẩm trên menu</div>
+            </div>
           </div>
         </div>
 
@@ -703,49 +752,184 @@
           <div class="task todo">
             <div class="check"></div>
             <div>
-              <div class="text">
-                ContentBlock model — lưu nội dung Spotlight, Banner trong
-                MongoDB
-              </div>
+              <div class="text">ContentBlock model — lưu nội dung Banner, Spotlight trong MongoDB</div>
             </div>
           </div>
           <div class="task todo">
             <div class="check"></div>
             <div>
-              <div class="text">
-                Form chỉnh sửa text, font size, ảnh cho từng section
-              </div>
-              <div class="note">
-                Thay vì sửa code, quản lý vào admin page chỉnh trực tiếp
-              </div>
+              <div class="text">Form chỉnh sửa text, ảnh cho từng section trực tiếp từ admin</div>
             </div>
           </div>
           <div class="task todo">
             <div class="check"></div>
             <div>
-              <div class="text">Blog posts — thêm/sửa/xóa bài viết</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Frontend render nội dung dynamic từ API thay vì hardcode
-              </div>
+              <div class="text">Frontend render nội dung dynamic từ API thay vì hardcode</div>
             </div>
           </div>
         </div>
 
         <div class="note-box">
-          <strong>Lưu ý:</strong> Admin dashboard không cần JWT phức tạp. Có thể
-          dùng simple password hoặc IP whitelist để bảo vệ route /admin.
+          <strong>Lưu ý:</strong> Dùng JWT (jsonwebtoken) cho auth. Admin account lưu trong
+          .env hoặc DB với password đã hash (bcrypt). Không cần hệ thống đăng ký — chỉ có 1 admin duy nhất.
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- PHASE 6 -->
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-number">06</div>
+          <div class="phase-title">Thông báo đơn hàng</div>
+          <div class="phase-status status-upcoming">Sắp tới</div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Gmail (Nodemailer)</div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Gửi email xác nhận đơn hàng cho khách sau khi đặt thành công</div>
+              <div class="note">Dùng Nodemailer + Gmail App Password — miễn phí</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Email template HTML — tóm tắt đơn, tên khách, giờ lấy hàng</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Gửi thông báo cho admin khi có đơn mới</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Zalo Notification (qua SĐT)</div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Zalo OA (Official Account) — tạo tài khoản doanh nghiệp</div>
+              <div class="note">Gửi tin nhắn Zalo qua số điện thoại khách hàng — cần đăng ký Zalo OA, có thể mất phí theo gói</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Zalo API — gửi ZNS (Zalo Notification Service) template message</div>
+              <div class="note">ZNS tính phí theo tin nhắn (~50-200đ/tin). Cần đăng ký template được Zalo duyệt trước.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <strong>Khuyến nghị:</strong> Bắt đầu với Gmail (miễn phí, dễ tích hợp). Zalo ZNS phù hợp
+          khi có lượng khách ổn định vì có chi phí vận hành — nên cân nhắc sau khi go-live.
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- PHASE 7 -->
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-number">07</div>
+          <div class="phase-title">Security &amp; Production</div>
+          <div class="phase-status status-upcoming">Sắp tới</div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">API Security</div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Rate limiting — giới hạn số request từ 1 IP (express-rate-limit)</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Helmet.js — bảo vệ HTTP headers</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Input validation — sanitize dữ liệu từ form (express-validator)</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">CORS — chỉ cho phép domain frontend được phép gọi API</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Auth Security</div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">bcrypt — hash password admin trước khi lưu</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">JWT expiry + refresh token — token hết hạn tự động</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">httpOnly cookie — tránh XSS đánh cắp token từ JS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Production Deploy</div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Backend deploy lên Railway hoặc Render</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Frontend deploy lên Vercel hoặc Netlify</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Domain + HTTPS (Cloudflare hoặc nhà cung cấp VN)</div>
+            </div>
+          </div>
+          <div class="task todo">
+            <div class="check"></div>
+            <div>
+              <div class="text">Environment variables — tách biệt .env dev và production</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <strong>Lưu ý:</strong> Security làm sau cùng khi tính năng đã ổn định.
+          Ưu tiên: Rate limit → CORS → Helmet → bcrypt → JWT httpOnly. Deploy sau khi security đã pass review.
         </div>
       </div>
 
       <footer>
         <p>
           Kohi &nbsp;·&nbsp; コーヒー &nbsp;·&nbsp; Cập nhật lần cuối:
-          01/05/2026
+          03/05/2026
         </p>
       </footer>
     </div>

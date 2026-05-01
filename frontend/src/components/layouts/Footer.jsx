@@ -4,7 +4,7 @@ export default function Footer() {
       <div className='grid max-w-6xl gap-10 mx-auto mb-12 md:grid-cols-3'>
         <div>
           <h3 className='mb-4 font-serif text-2xl text-white'>Kohi</h3>
-          <p className='text-sm leading-relaxed'>
+          <p className='text-sm leading-relaxed w-80'>
             コーヒー — Cà phê theo phong cách Nhật Bản. Mỗi tách cà phê là một
             khoảnh khắc đáng sống chậm.
           </p>

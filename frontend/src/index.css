@@ -32,11 +32,11 @@ body {
   }
 
   .section-title {
-    @apply font-serif text-5xl text-coffee-700;
+    @apply font-serif text-3xl md:text-5xl text-coffee-700;
   }
 
   .section-title-light {
-    @apply font-serif text-5xl text-white;
+    @apply font-serif text-3xl md:text-5xl text-white;
   }
 
   /* ── Navbar ── */

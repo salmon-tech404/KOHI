@@ -10,7 +10,7 @@ import BeanSection from "../components/sections/BeansSection";
 export default function Home() {
   return (
     <main>
-      <Navbar />
+      <Navbar variant='light' />
       <Hero />
       <WhyUs />
       <MenuPreview />

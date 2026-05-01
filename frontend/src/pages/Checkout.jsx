@@ -55,7 +55,7 @@ export default function Checkout() {
   return (
     <>
       <Navbar variant='light' />
-      <main className='min-h-screen px-6 pt-40 pb-24 bg-cream'>
+      <main className='min-h-screen px-6 pb-24 pt-28 md:pt-40 bg-cream'>
         <div className='max-w-2xl mx-auto '>
           {/* Title */}
           <p className='text-center section-label'>Đặt hàng</p>

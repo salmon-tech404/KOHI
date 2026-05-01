@@ -20,7 +20,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className='mb-3 font-serif font-bold leading-none text-8xl md:text-9xl'
+          className='mb-3 font-serif text-6xl font-bold leading-none md:text-8xl lg:text-9xl'
         >
           Kohi
         </motion.h1>
@@ -29,7 +29,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className='mb-10 font-serif text-2xl italic text-white/50'
+          className='mb-10 font-serif text-lg italic md:text-2xl text-white/50'
         >
           じゃ、コーヒーでも
         </motion.p>
