@@ -11,9 +11,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className='footer-heading'>
-            Giờ mở cửa
-          </h4>
+          <h4 className='footer-heading'>Giờ mở cửa</h4>
           <div className='space-y-2 text-sm'>
             <p>Thứ 2 — Thứ 6: 7:00 — 21:00</p>
             <p>Thứ 7 — Chủ nhật: 8:00 — 22:00</p>
@@ -21,9 +19,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className='footer-heading'>
-            Liên hệ
-          </h4>
+          <h4 className='footer-heading'>Liên hệ</h4>
           <div className='space-y-2 text-sm'>
             <p>123 Đường Cà Phê, Quận 1</p>
             <p>TP. Hồ Chí Minh</p>
@@ -32,8 +28,16 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className='pt-6 text-xs text-center border-t border-white/10'>
+      <div className='pt-6 space-y-2 text-sm text-center border-t border-white/30'>
         <p>© 2025 Kohi. Made with ♥ and coffee.</p>
+        <a
+          href='/project_details.html'
+          target='_blank'
+          rel='noreferrer'
+          className='text-sm transition-colors text-white/60 hover:text-white/90'
+        >
+          Project Docs
+        </a>
       </div>
     </footer>
   );

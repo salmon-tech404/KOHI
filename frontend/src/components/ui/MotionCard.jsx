@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
 export default function MotionCard({ children, delay = 0, className = "" }) {
@@ -13,3 +14,9 @@ export default function MotionCard({ children, delay = 0, className = "" }) {
     </motion.div>
   );
 }
+
+MotionCard.propTypes = {
+  children: PropTypes.node.isRequired,
+  delay: PropTypes.number,
+  className: PropTypes.string,
+};

@@ -17,7 +17,7 @@ export default function BeanSection() {
           <h2 className='section-title'>Hạt cà phê của chúng tôi</h2>
         </motion.div>
 
-        <div className='grid gap-10 md:grid-cols-2'>
+        <div className='grid gap-16 md:grid-cols-2'>
           {BEAN_LIST.map((bean, i) => (
             <MotionCard key={bean.id} delay={i * 0.15} className='group'>
               {/* Image box — fixed height, object-cover, neutral bg */}
@@ -29,7 +29,7 @@ export default function BeanSection() {
                 />
               </div>
               {/* latin */}
-              <p className='mb-1 text-xs italic text-stone-400'>{bean.latin}</p>
+              <p className='mb-1 text-xs italic text-stone-500'>{bean.latin}</p>
               {/* name & ratio (tỷ lệ) */}
               <div className='flex items-baseline justify-between mb-4'>
                 <h3 className='font-serif text-5xl text-stone-900'>
@@ -56,7 +56,7 @@ export default function BeanSection() {
                 ))}
               </div>
               {/*description: mô tả */}
-              <p className='text-sm leading-relaxed text-stone-500'>
+              <p className='text-base leading-relaxed text-stone-500'>
                 {bean.desc}
               </p>
             </MotionCard>

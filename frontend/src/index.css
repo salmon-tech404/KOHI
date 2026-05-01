@@ -20,7 +20,7 @@ body {
   --color-coffee-700: #4a2c2a;
   --color-coffee-600: #6b4040;
   --color-coffee-200: #e8d5b7;
-  --color-gold: #d4a853;
+  --color-gold: #e8b144;
   --color-cream: #faf6f0;
   --color-black: #000000;
 }
@@ -48,13 +48,21 @@ body {
     @apply text-lg tracking-widest uppercase transition-colors text-white/80 hover:text-white hover:underline hover:underline-offset-4 hover:decoration-2;
   }
 
+  .nav-logo-dark {
+    @apply font-serif text-3xl font-bold tracking-wider text-coffee-950;
+  }
+
+  .nav-link-dark {
+    @apply text-lg tracking-widest uppercase transition-colors text-coffee-700 hover:text-coffee-950 hover:underline hover:underline-offset-4 hover:decoration-2;
+  }
+
   /* ── Whyus / Item text ── */
   .item-title {
     @apply font-serif text-2xl text-white;
   }
 
   .item-desc {
-    @apply text-sm leading-relaxed text-white/50;
+    @apply text-base leading-relaxed text-white/60;
   }
 
   .card-label {

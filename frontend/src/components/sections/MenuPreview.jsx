@@ -33,7 +33,7 @@ export default function MenuPreview() {
         </div>
 
         <div className='text-center'>
-          <Link to='/menu' className='inline-block btn-outline-dark'>
+          <Link to='/menu' className='inline-block btn-outline-gold'>
             Xem toàn bộ menu
           </Link>
         </div>
