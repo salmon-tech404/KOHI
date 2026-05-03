@@ -15,7 +15,7 @@ export const updateOrderStatus = (id, status) =>
     },
   );
 
-export const getProducts = () => api.get("/products");
+export const getProducts = () => api.get("/products?all=true");
 
 export const createProduct = (data) =>
   api.post("/products", data, {

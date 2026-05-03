@@ -4,13 +4,11 @@ import requireAuth from "../middleware/auth.js";
 
 const router = express.Router();
 
-// GET (api/products - lấy tất cả sản phẩm)
-// .populate("category") tự động thay category: "abc123" thành category: { _id: "abc123", name: "Espresso" }.
+// GET /api/products — public trả available:true, admin dùng ?all=true để lấy hết
 router.get("/", async (req, res) => {
   try {
-    const products = await Product.find({ available: true }).populate(
-      "category",
-    );
+    const filter = req.query.all === "true" ? {} : { available: true };
+    const products = await Product.find(filter).populate("category");
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: "Lỗi load products" });
