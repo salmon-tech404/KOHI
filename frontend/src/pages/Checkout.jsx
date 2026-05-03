@@ -3,9 +3,12 @@ import { useNavigate } from "react-router-dom";
 import useCartStore from "../store/cartStore";
 import Navbar from "../components/layouts/Navbar";
 import { createOrder } from "../api/orders";
+import { saveOrderId } from "../utils/orderStorage";
+import useOrderNotifStore from "../store/orderNotifStore";
 
 export default function Checkout() {
   const { items, getTotalPrice, clearCart } = useCartStore();
+  const increment = useOrderNotifStore((state) => state.increment);
   const navigate = useNavigate();
 
   //thiết lập form
@@ -31,7 +34,7 @@ export default function Checkout() {
       return;
     }
     try {
-      await createOrder({
+      const res = await createOrder({
         customerName: form.name,
         phone: form.phone,
         pickupTime: form.pickupTime,
@@ -44,8 +47,10 @@ export default function Checkout() {
         })),
         total: getTotalPrice(),
       });
+      saveOrderId(res.data._id);
+      increment();
       clearCart();
-      navigate("/order-success");
+      navigate("/order-success", { state: { orderId: res.data._id } });
     } catch (error) {
       console.error("Đặt hàng thất bại:", error);
       alert("Có lỗi xảy ra, vui lòng thử lại.");

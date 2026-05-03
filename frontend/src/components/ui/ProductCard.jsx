@@ -52,7 +52,7 @@ export default function ProductCard({ product, onSelect }) {
         </button>
       </div>
 
-      <p className='mb-1 card-label'>{product.category}</p>
+      <p className='mb-1 card-label'>{product.category?.name}</p>
       <h3 className='mb-1 card-title'>{product.name}</h3>
       <p className='card-price'>{product.price.toLocaleString("vi-VN")}đ</p>
     </div>
@@ -65,7 +65,7 @@ ProductCard.propTypes = {
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    category: PropTypes.string,
+    category: PropTypes.shape({ name: PropTypes.string }),
   }).isRequired,
   onSelect: PropTypes.func,
 };

@@ -4,15 +4,10 @@ import Navbar from "../components/layouts/Navbar";
 import ProductCard from "../components/ui/ProductCard";
 import ProductModal from "../components/ui/ProductModal";
 import useProducts from "../hooks/useProducts";
-
-const CATEGORIES = [
-  { key: "all", label: "Tất cả" },
-  { key: "espresso", label: "Espresso" },
-  { key: "cold", label: "Cold Brew" },
-  { key: "non-coffee", label: "Non-Coffee" },
-];
+import useCategories from "../hooks/useCategories";
 
 export default function Menu() {
+  const categories = useCategories();
   const { products, loading, error } = useProducts();
   const [activeCategory, setActiveCategory] = useState("all");
   const [search, setSearch] = useState("");
@@ -21,7 +16,7 @@ export default function Menu() {
   const filtered = useMemo(() => {
     return products
       .filter((p) =>
-        activeCategory === "all" ? true : p.category === activeCategory,
+        activeCategory === "all" ? true : p.category?.name === activeCategory,
       )
       .filter((p) => p.name.toLowerCase().includes(search.toLowerCase()));
   }, [products, activeCategory, search]);
@@ -73,23 +68,27 @@ export default function Menu() {
 
             {/* Category tabs */}
             <div className='flex flex-wrap gap-2'>
-              {CATEGORIES.map((cat) => (
+              <button
+                onClick={() => setActiveCategory("all")}
+                className={`px-5 py-2 text-xs tracking-widest uppercase transition-colors ${
+                  activeCategory === "all"
+                    ? "bg-coffee-800 text-white"
+                    : "bg-white border border-coffee-200 text-coffee-700 hover:border-coffee-500"
+                }`}
+              >
+                Tất cả
+              </button>
+              {categories.map((cat) => (
                 <button
-                  key={cat.key}
-                  onClick={() => setActiveCategory(cat.key)}
-                  className={`relative px-5 py-2 text-xs tracking-widest uppercase transition-colors ${
-                    activeCategory === cat.key
+                  key={cat._id}
+                  onClick={() => setActiveCategory(cat.name)}
+                  className={`px-5 py-2 text-xs tracking-widest uppercase transition-colors ${
+                    activeCategory === cat.name
                       ? "bg-coffee-800 text-white"
                       : "bg-white border border-coffee-200 text-coffee-700 hover:border-coffee-500"
                   }`}
                 >
-                  {cat.label}
-                  {activeCategory === cat.key && (
-                    <motion.span
-                      layoutId='active-tab'
-                      className='absolute inset-0 bg-coffee-800 -z-10'
-                    />
-                  )}
+                  {cat.name}
                 </button>
               ))}
             </div>
