@@ -3,7 +3,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import productRoutes from "./routes/product.js";
+import categoryRoutes from "./routes/category.js";
 import orderRoutes from "./routes/order.js";
+import adminRoutes from "./routes/authAdmin.js";
 
 dotenv.config();
 
@@ -12,7 +14,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/products", productRoutes);
+app.use("/api/categories", categoryRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/admin", adminRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)

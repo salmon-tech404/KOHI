@@ -42,7 +42,6 @@
         text-transform: uppercase;
       }
 
-      /* Section title */
       .section-heading {
         font-size: 11px;
         letter-spacing: 0.4em;
@@ -51,7 +50,6 @@
         margin-bottom: 20px;
       }
 
-      /* Tech Stack Grid */
       .stack-section {
         margin-bottom: 64px;
       }
@@ -83,7 +81,6 @@
         color: #6b4040;
       }
 
-      /* Phase */
       .phase {
         margin-bottom: 48px;
       }
@@ -116,22 +113,10 @@
         padding: 4px 12px;
         border-radius: 20px;
       }
-      .status-done {
-        background: #4ade80;
-        color: #ffffff;
-      }
-      .status-inprogress {
-        background: #60a5fa;
-        color: #ffffff;
-      }
-      .status-next {
-        background: #ffffff;
-        color: #000000;
-      }
-      .status-upcoming {
-        background: #a0a0a0;
-        color: #fbfbfb;
-      }
+      .status-done { background: #4ade80; color: #ffffff; }
+      .status-inprogress { background: #60a5fa; color: #ffffff; }
+      .status-next { background: #ffffff; color: #000000; border: 1px solid #ccc; }
+      .status-upcoming { background: #a0a0a0; color: #fbfbfb; }
 
       .task-group {
         margin-bottom: 20px;
@@ -152,9 +137,7 @@
         font-size: 14px;
         line-height: 1.5;
       }
-      .task:last-child {
-        border-bottom: none;
-      }
+      .task:last-child { border-bottom: none; }
       .task .check {
         width: 18px;
         height: 18px;
@@ -162,20 +145,10 @@
         flex-shrink: 0;
         margin-top: 2px;
       }
-      .done .check {
-        background: #4ade80;
-      }
-      .todo .check {
-        background: transparent;
-        border: 1.5px solid #d4a853;
-      }
-      .task .text {
-        color: #3d2219;
-      }
-      .done .text {
-        color: #c8a882;
-        text-decoration: line-through;
-      }
+      .done .check { background: #4ade80; }
+      .todo .check { background: transparent; border: 1.5px solid #d4a853; }
+      .task .text { color: #3d2219; }
+      .done .text { color: #c8a882; text-decoration: line-through; }
       .task .note {
         font-size: 12px;
         color: #c8a882;
@@ -191,9 +164,7 @@
         color: #4a2c2a;
         line-height: 1.6;
       }
-      .note-box strong {
-        color: #d4a853;
-      }
+      .note-box strong { color: #d4a853; }
 
       hr.divider {
         border: none;
@@ -230,7 +201,7 @@
           <div class="stack-item">
             <div class="label">Build Tool</div>
             <div class="value">Vite 5</div>
-            <div class="detail">Node v20 compatible</div>
+            <div class="detail">VITE_API_URL env var</div>
           </div>
           <div class="stack-item">
             <div class="label">Styling</div>
@@ -245,17 +216,17 @@
           <div class="stack-item">
             <div class="label">State</div>
             <div class="value">Zustand</div>
-            <div class="detail">Cart store</div>
+            <div class="detail">cartStore + orderNotifStore (persist)</div>
           </div>
           <div class="stack-item">
             <div class="label">Routing</div>
             <div class="value">React Router v6</div>
-            <div class="detail">BrowserRouter, Link</div>
+            <div class="detail">BrowserRouter, Outlet, NavLink</div>
           </div>
           <div class="stack-item">
             <div class="label">HTTP Client</div>
             <div class="value">Axios</div>
-            <div class="detail">Phase 3+</div>
+            <div class="detail">interceptor auto-logout 401</div>
           </div>
           <div class="stack-item">
             <div class="label">Prop Validation</div>
@@ -268,14 +239,9 @@
             <div class="detail">Playfair Display, DM Sans</div>
           </div>
           <div class="stack-item">
-            <div class="label">Images</div>
-            <div class="value">Unsplash / Pexels</div>
-            <div class="detail">Free stock photos</div>
-          </div>
-          <div class="stack-item">
             <div class="label">Backend</div>
             <div class="value">Express v5</div>
-            <div class="detail">REST API</div>
+            <div class="detail">REST API, ESM module</div>
           </div>
           <div class="stack-item">
             <div class="label">Database</div>
@@ -284,13 +250,28 @@
           </div>
           <div class="stack-item">
             <div class="label">ODM</div>
-            <div class="value">Mongoose</div>
-            <div class="detail">Schema + model</div>
+            <div class="value">Mongoose 9</div>
+            <div class="detail">Schema + populate + timestamps</div>
+          </div>
+          <div class="stack-item">
+            <div class="label">Auth</div>
+            <div class="value">JWT + bcryptjs</div>
+            <div class="detail">jsonwebtoken 8h expiry</div>
           </div>
           <div class="stack-item">
             <div class="label">Environment</div>
-            <div class="value">dotenv</div>
-            <div class="detail">MONGO_URI, PORT</div>
+            <div class="value">dotenv v17</div>
+            <div class="detail">MONGO_URI, PORT, JWT_SECRET</div>
+          </div>
+          <div class="stack-item">
+            <div class="label">Deploy — FE</div>
+            <div class="value">Cloudflare Pages</div>
+            <div class="detail">Build: npm run build / dist</div>
+          </div>
+          <div class="stack-item">
+            <div class="label">Deploy — BE</div>
+            <div class="value">Railway</div>
+            <div class="detail">root: backend / npm start</div>
           </div>
         </div>
       </div>
@@ -307,159 +288,33 @@
 
         <div class="task-group">
           <div class="task-group-title">Setup</div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Khởi tạo project (React + Vite + Tailwind + Express + MongoDB)
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Cấu hình Tailwind v4 — @theme custom colors &amp; fonts
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Design token system — @layer components (section-label, btn-*,
-                nav-*, card-*, item-*, footer-*)
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div><div class="text">Kết nối MongoDB Atlas</div></div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Cấu trúc thư mục feature-based (layouts / sections / ui / store
-                / constants)
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                constants/images.js + constants/menu.js — single source of truth
-              </div>
-            </div>
-          </div>
+          <div class="task done"><div class="check"></div><div><div class="text">Khởi tạo project (React + Vite + Tailwind + Express + MongoDB)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Cấu hình Tailwind v4 — @theme custom colors &amp; fonts</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Design token system — @layer components (section-label, btn-*, nav-*, card-*, item-*, footer-*)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Kết nối MongoDB Atlas</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Cấu trúc thư mục feature-based (layouts / sections / ui / store / constants)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">constants/images.js + constants/menu.js — single source of truth</div></div></div>
         </div>
 
         <div class="task-group">
           <div class="task-group-title">Homepage UI</div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Navbar — transparent → blur on scroll, cart icon
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Hero — fullscreen ảnh, animation fade-in, 2 CTA buttons
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">WhyUs — 3 điểm nổi bật với số trang trí</div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                MenuPreview — grid 4 sản phẩm, hover reveal button
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                OriginsSection — 3 vùng trồng cà phê, hover reveal description
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                BeansSection — Arabica / Robusta, editorial layout,
-                object-contain image
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                StorySection — background image vườn cafe, dark overlay
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">Footer — giờ mở cửa, địa chỉ, liên hệ</div>
-            </div>
-          </div>
+          <div class="task done"><div class="check"></div><div><div class="text">Navbar — transparent → blur on scroll, cart icon + order icon + hamburger mobile</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Hero — fullscreen ảnh, animation fade-in, 2 CTA buttons</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">WhyUs — 3 điểm nổi bật với số trang trí</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">MenuPreview — grid 4 sản phẩm, hover reveal button</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">OriginsSection — 3 vùng trồng cà phê, hover reveal description</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">BeansSection — Arabica / Robusta, editorial layout</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">StorySection — background image vườn cafe, dark overlay</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Footer — giờ mở cửa, địa chỉ, liên hệ</div></div></div>
         </div>
 
         <div class="task-group">
           <div class="task-group-title">Reusable Components</div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                PageHero.jsx — layout component dùng chung cho các hero section
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                MotionCard.jsx — wrapper component tái sử dụng animation
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                ProductCard.jsx — hover effect, AnimatePresence text swap
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">PropTypes cho toàn bộ components có props</div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Favicon ☕ (SVG emoji) + tiêu đề "Kohi — コーヒー"
-              </div>
-            </div>
-          </div>
+          <div class="task done"><div class="check"></div><div><div class="text">PageHero.jsx — layout component dùng chung cho các hero section</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">ProductCard.jsx — hover effect, AnimatePresence text swap, category?.name</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">ProductModal.jsx — modal xem chi tiết + thêm giỏ hàng</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">PropTypes cho toàn bộ components có props</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Favicon ☕ (SVG emoji) + tiêu đề "Kohi — コーヒー"</div></div></div>
         </div>
       </div>
 
@@ -475,66 +330,26 @@
 
         <div class="task-group">
           <div class="task-group-title">Cart</div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                cartStore.js — Zustand store (items, addItem, removeItem,
-                updateQty, clearCart, getTotalPrice, getTotalItems)
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                CartDrawer.jsx — panel slide-in từ phải, overlay backdrop,
-                tăng/giảm số lượng
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Navbar — hiển thị badge số lượng, click mở CartDrawer
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                ProductCard — "Thêm vào giỏ" gọi addItem() từ store
-              </div>
-            </div>
-          </div>
+          <div class="task done"><div class="check"></div><div><div class="text">cartStore.js — Zustand (addItem, removeItem, updateQty, clearCart, getTotalPrice, getTotalItems)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">CartDrawer.jsx — panel slide-in từ phải, overlay backdrop, tăng/giảm số lượng</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Navbar — badge số lượng, click mở CartDrawer</div></div></div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Checkout</div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Trang Checkout — form: tên, SĐT, giờ lấy hàng, ghi chú
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">POST /api/orders — gửi đơn lên backend</div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Trang OrderSuccess — xác nhận đơn hàng + thông tin
-              </div>
-            </div>
-          </div>
+          <div class="task-group-title">Checkout &amp; Order Flow</div>
+          <div class="task done"><div class="check"></div><div><div class="text">Trang Checkout — form: tên, SĐT, giờ lấy hàng (10:00–20:00), ghi chú</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">POST /api/orders — tạo đơn, lưu orderId vào localStorage (orderStorage.js)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">OrderSuccess — đếm ngược 5s tự redirect về trang chủ, link đến trang đơn hàng</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">OrderInfo — trang theo dõi đơn hàng, 2 tab: "Đã đặt" / "Đã hủy"</div></div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">Hủy đơn từ phía khách — PATCH /api/orders/:id/cancel (public, chỉ hủy khi pending)</div>
+            <div class="note">Dialog xác nhận hủy thay vì browser confirm(). Đơn confirmed trở lên không hủy được.</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">orderNotifStore.js — Zustand persist, đếm đơn chưa xem, badge trên Navbar icon</div>
+            <div class="note">increment() sau khi đặt hàng. clear() khi mở trang OrderInfo.</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">GET /api/orders/:id — public, khách tra đơn theo ID lưu trong localStorage</div></div></div>
         </div>
       </div>
 
@@ -549,67 +364,50 @@
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Backend</div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">Product model + routes (GET /api/products)</div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Order model + routes (POST /api/orders, GET /api/orders)
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Seed script — nhồi data sản phẩm mẫu vào MongoDB
-              </div>
-            </div>
-          </div>
+          <div class="task-group-title">Models</div>
+          <div class="task done"><div class="check"></div><div><div class="text">Product model — name, description, price, category (ObjectId ref Category), image, available</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Order model — customerName, phone, pickupTime, note, items[], total, status (pending/confirmed/ready/done/cancelled)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Category model — name (unique, trim, timestamps)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Admin model — username, password (bcrypt hash pre-save hook), comparePassword method</div></div></div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Frontend — kết nối API</div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">api/axios.js — axios instance với baseURL</div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">api/products.js — hàm gọi API lấy sản phẩm</div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">api/orders.js — hàm gọi API tạo đơn hàng</div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                hooks/useProducts.js — custom hook fetch sản phẩm
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Thay data tĩnh (constants/menu.js) bằng API call thật
-              </div>
-            </div>
-          </div>
+          <div class="task-group-title">API Routes</div>
+          <div class="task done"><div class="check"></div><div><div class="text">GET /api/products — lấy tất cả sản phẩm available, .populate("category")</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">POST /PUT /DELETE /api/products — CRUD sản phẩm (requireAuth)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">GET /api/categories — danh sách category (public, sort alpha)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">POST /DELETE /api/categories — tạo/xóa category (requireAuth), bắt lỗi duplicate 11000</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">POST /api/orders — tạo đơn hàng mới (public)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">GET /api/orders — tất cả đơn hàng cho admin (public GET, sort createdAt desc)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">GET /api/orders/:id — tra đơn theo ID (public)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">PATCH /api/orders/:id/status — đổi status (requireAuth)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">PATCH /api/orders/:id/cancel — khách hủy đơn (public, chỉ pending)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">POST /api/admin/login — xác thực, trả JWT (8h)</div></div></div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Frontend API Layer</div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">api/axios.js — axios instance, baseURL từ import.meta.env.VITE_API_URL</div>
+            <div class="note">Interceptor tự xóa token và redirect /admin/login khi nhận 401</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">api/orders.js — createOrder, cancelOrder, getOrderById</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">api/admin.js — loginAdmin, getOrders, updateOrderStatus, CRUD products, getCategories, createCategory</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">hooks/useProducts.js — fetch sản phẩm từ API</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">hooks/useCategories.js — fetch categories từ API</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">utils/orderStorage.js — saveOrderId / getOrderIds (localStorage key "kohi_orders")</div></div></div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Seed Data</div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">seedCategory.js — tạo 3 categories (Espresso, Cold Brew, Non-Coffee) + 10 sản phẩm với ObjectId refs</div>
+            <div class="note">npm run seedCategory — chạy từ thư mục backend</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">seedAdmin.js — tạo admin account (username: admin / password: adminkohi2026)</div>
+            <div class="note">npm run seed:admin — chạy từ thư mục backend</div>
+          </div></div>
         </div>
       </div>
 
@@ -625,32 +423,18 @@
 
         <div class="task-group">
           <div class="task-group-title">UI / UX</div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">Menu page — hero editorial + grid sản phẩm đầy đủ (10 items)</div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Thanh filter: ô tìm kiếm + tabs category (Tất cả / Espresso / Cold Brew / Non-Coffee)
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div>
-              <div class="text">
-                Transition mượt khi switch category (Framer Motion layout + AnimatePresence)
-              </div>
-            </div>
-          </div>
-          <div class="task done">
-            <div class="check"></div>
-            <div><div class="text">Modal xem nhanh chi tiết sản phẩm + thêm giỏ hàng</div></div>
-          </div>
+          <div class="task done"><div class="check"></div><div><div class="text">Menu page — hero editorial light (text đen) + grid sản phẩm (10 items)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Thanh filter sticky — ô tìm kiếm (SVG icon) + tabs category dynamic từ DB</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Filter logic: p.category?.name === activeCategory (optional chaining vì category là object)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Transition mượt khi switch category (Framer Motion layout + AnimatePresence popLayout)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">ProductModal — xem nhanh chi tiết sản phẩm + thêm giỏ hàng</div></div></div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Responsive Mobile</div>
+          <div class="task done"><div class="check"></div><div><div class="text">Navbar — hamburger menu mobile (Framer Motion animate 3 bars → X)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Hero — font size responsive (text-6xl md:text-8xl lg:text-9xl)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Grid sản phẩm — 2 cột mobile, 3 cột md, 4 cột lg</div></div></div>
         </div>
       </div>
 
@@ -661,117 +445,88 @@
         <div class="phase-header">
           <div class="phase-number">05</div>
           <div class="phase-title">Admin Dashboard</div>
-          <div class="phase-status status-next">Tiếp theo</div>
+          <div class="phase-status status-inprogress">Đang làm</div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Đăng nhập</div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Trang /admin/login — form username + password</div>
-              <div class="note">JWT token lưu vào httpOnly cookie hoặc localStorage</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Protected route — chặn truy cập /admin nếu chưa đăng nhập</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Logout — xóa token, redirect về /admin/login</div>
-            </div>
-          </div>
+          <div class="task-group-title">Auth ✓</div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">Admin model — bcrypt pre-save hook (Mongoose 7+ async, không dùng next)</div>
+            <div class="note">comparePassword dùng bcrypt.compare(plain, hash)</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">POST /api/admin/login — trả JWT ký bằng process.env.JWT_SECRET (8h)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">middleware/auth.js — requireAuth: verify JWT, gắn req.adminId, trả 401 nếu sai</div></div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">hooks/useAdminAuth.js — getToken / setToken / removeToken / isAuthenticated</div>
+            <div class="note">localStorage key: "kohi_admin_token"</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">AdminRoute.jsx — Outlet pattern, redirect /admin/login nếu !isAuthenticated()</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Trang /admin/login — form, lưu token, redirect /admin/orders</div></div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">axios interceptor — bắt 401 mọi API call, removeToken() + redirect login tự động</div>
+          </div></div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Dashboard tổng quan</div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Sidebar navigation — Orders / Products / Content / Settings</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Stats cards — tổng đơn hôm nay, doanh thu, sản phẩm đang bán</div>
-            </div>
-          </div>
+          <div class="task-group-title">Layout ✓</div>
+          <div class="task done"><div class="check"></div><div><div class="text">Dashboard.jsx — sidebar (NavLink active=gold) + Outlet + nút Đăng xuất</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Sidebar nav: Đơn hàng (/admin/orders) · Sản phẩm (/admin/products)</div></div></div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Quản lý đơn hàng</div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Danh sách đơn hàng — filter theo ngày, trạng thái</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Cập nhật trạng thái: pending → confirmed → ready → done</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Xem chi tiết từng đơn — items, ghi chú, giờ lấy hàng</div>
-            </div>
-          </div>
+          <div class="task-group-title">Quản lý đơn hàng ✓</div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">Trang /admin/orders — danh sách dạng hàng ngang, compact</div>
+            <div class="note">Cột: ngày giờ · tên · SĐT · món · giờ lấy · tổng · status badge · dropdown đổi status</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">formatDate() — hiển thị createdAt dạng dd/mm/yyyy hh:mm (vi-VN locale)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Dropdown đổi status: pending → confirmed → ready → done (không có cancelled)</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Đơn đã hủy — dropdown ẩn, hiện dấu "—", không thể đổi status</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Status colors: pending=yellow · confirmed=blue · ready=orange · done=green · cancelled=red</div></div></div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Quản lý sản phẩm</div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">CRUD sản phẩm — thêm, sửa, xóa, ẩn/hiện</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Upload ảnh sản phẩm (Cloudinary hoặc local)</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Toggle available — bật/tắt hiển thị sản phẩm trên menu</div>
-            </div>
-          </div>
+          <div class="task-group-title">Quản lý sản phẩm — Đang làm</div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">Trang /admin/products — danh sách nhóm theo category</div>
+            <div class="note">useMemo grouped: categories.map → items: products.filter(p.category._id === cat._id)</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Category header với divider line + đếm số sản phẩm mỗi nhóm</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Mỗi sản phẩm: ảnh thumbnail + tên + mô tả truncate + giá + nút Sửa/Xóa</div></div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Form thêm/sửa sản phẩm — tên, mô tả, giá, URL ảnh, category dropdown</div></div></div>
+          <div class="task todo"><div class="check"></div><div>
+            <div class="text">Category dropdown — cuối danh sách có option "+ Thêm category mới"</div>
+            <div class="note">Chọn __new__ → hiện input nhập tên → createCategory() trước rồi createProduct()</div>
+          </div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Xử lý Sửa — load data vào form, gọi updateProduct()</div></div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Xử lý Xóa — confirm dialog, gọi deleteProduct()</div></div></div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Quản lý nội dung (Mini CMS)</div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">ContentBlock model — lưu nội dung Banner, Spotlight trong MongoDB</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Form chỉnh sửa text, ảnh cho từng section trực tiếp từ admin</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Frontend render nội dung dynamic từ API thay vì hardcode</div>
-            </div>
-          </div>
+          <div class="task-group-title">Dashboard Overview — Chưa làm</div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Cài Recharts — npm install recharts (frontend)</div></div></div>
+          <div class="task todo"><div class="check"></div><div>
+            <div class="text">Backend: GET /api/admin/stats — tổng đơn hôm nay, doanh thu, top products</div>
+            <div class="note">MongoDB aggregation: $match createdAt + $group + $sum total</div>
+          </div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">UI: 4 stats cards — Tổng đơn · Doanh thu hôm nay · Đang xử lý · Hoàn thành</div></div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">UI: Line chart doanh thu 7 ngày gần nhất (Recharts)</div></div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">UI: Top sản phẩm bán chạy</div></div></div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Quản lý khách hàng — Chưa làm</div>
+          <div class="task todo"><div class="check"></div><div>
+            <div class="text">Aggregate orders theo phone — danh sách khách + số lần đặt + tổng chi tiêu</div>
+            <div class="note">Không cần model mới — query từ orders collection</div>
+          </div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Xem lịch sử đặt hàng theo từng khách</div></div></div>
         </div>
 
         <div class="note-box">
-          <strong>Lưu ý:</strong> Dùng JWT (jsonwebtoken) cho auth. Admin account lưu trong
-          .env hoặc DB với password đã hash (bcrypt). Không cần hệ thống đăng ký — chỉ có 1 admin duy nhất.
+          <strong>Trạng thái (03/05/2026):</strong> Auth + tất cả backend routes hoàn chỉnh.
+          Admin orders UI hoàn chỉnh. Products UI hiển thị xong, đang làm form thêm/sửa/xóa.
+          Tiếp theo: hoàn thiện Products form → Dashboard Overview → Deploy.
         </div>
       </div>
 
@@ -781,54 +536,50 @@
       <div class="phase">
         <div class="phase-header">
           <div class="phase-number">06</div>
-          <div class="phase-title">Thông báo đơn hàng</div>
-          <div class="phase-status status-upcoming">Sắp tới</div>
+          <div class="phase-title">Deploy — Production</div>
+          <div class="phase-status status-inprogress">Đang làm</div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Gmail (Nodemailer)</div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Gửi email xác nhận đơn hàng cho khách sau khi đặt thành công</div>
-              <div class="note">Dùng Nodemailer + Gmail App Password — miễn phí</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Email template HTML — tóm tắt đơn, tên khách, giờ lấy hàng</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Gửi thông báo cho admin khi có đơn mới</div>
-            </div>
-          </div>
+          <div class="task-group-title">Chuẩn bị code ✓</div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">axios.js — baseURL dùng import.meta.env.VITE_API_URL thay vì hardcode localhost</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">frontend/.env.local — VITE_API_URL=http://localhost:5000/api (local dev)</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">frontend/.env.production — VITE_API_URL=https://[railway-url]/api (production)</div>
+            <div class="note">Điền Railway URL sau khi deploy backend xong</div>
+          </div></div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Zalo Notification (qua SĐT)</div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Zalo OA (Official Account) — tạo tài khoản doanh nghiệp</div>
-              <div class="note">Gửi tin nhắn Zalo qua số điện thoại khách hàng — cần đăng ký Zalo OA, có thể mất phí theo gói</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Zalo API — gửi ZNS (Zalo Notification Service) template message</div>
-              <div class="note">ZNS tính phí theo tin nhắn (~50-200đ/tin). Cần đăng ký template được Zalo duyệt trước.</div>
-            </div>
-          </div>
+          <div class="task-group-title">Backend — Railway</div>
+          <div class="task todo"><div class="check"></div><div>
+            <div class="text">Tạo project trên railway.app, deploy từ GitHub repo</div>
+            <div class="note">Root directory: backend · Start command: npm start (node src/server.js)</div>
+          </div></div>
+          <div class="task todo"><div class="check"></div><div>
+            <div class="text">Set environment variables: MONGO_URI · JWT_SECRET (Railway tự set PORT)</div>
+          </div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Generate domain Railway → copy URL điền vào .env.production và Cloudflare</div></div></div>
+        </div>
+
+        <div class="task-group">
+          <div class="task-group-title">Frontend — Cloudflare Pages</div>
+          <div class="task todo"><div class="check"></div><div>
+            <div class="text">Tạo project trên pages.cloudflare.com, connect GitHub repo</div>
+            <div class="note">Root directory: frontend · Build: npm run build · Output: dist</div>
+          </div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Set env var: VITE_API_URL = https://[railway-url]/api</div></div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Deploy và test toàn bộ flow: menu → checkout → order → admin</div></div></div>
         </div>
 
         <div class="note-box">
-          <strong>Khuyến nghị:</strong> Bắt đầu với Gmail (miễn phí, dễ tích hợp). Zalo ZNS phù hợp
-          khi có lượng khách ổn định vì có chi phí vận hành — nên cân nhắc sau khi go-live.
+          <strong>Lý do chọn:</strong> Cloudflare Pages miễn phí + CDN cực nhanh cho frontend.
+          Railway không sleep sau 15 phút như Render free tier — backend luôn sẵn sàng.
+          MongoDB Atlas đã cloud sẵn, không cần thêm DB service.
         </div>
       </div>
 
@@ -838,99 +589,36 @@
       <div class="phase">
         <div class="phase-header">
           <div class="phase-number">07</div>
-          <div class="phase-title">Security &amp; Production</div>
+          <div class="phase-title">Thông báo &amp; Security</div>
           <div class="phase-status status-upcoming">Sắp tới</div>
         </div>
 
         <div class="task-group">
+          <div class="task-group-title">Email Notification (Nodemailer)</div>
+          <div class="task todo"><div class="check"></div><div>
+            <div class="text">Gửi email xác nhận đơn hàng cho khách sau khi đặt thành công</div>
+            <div class="note">Nodemailer + Gmail App Password — miễn phí</div>
+          </div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Email template HTML — tóm tắt đơn, tên khách, giờ lấy hàng</div></div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Thông báo admin khi có đơn mới</div></div></div>
+        </div>
+
+        <div class="task-group">
           <div class="task-group-title">API Security</div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Rate limiting — giới hạn số request từ 1 IP (express-rate-limit)</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Helmet.js — bảo vệ HTTP headers</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Input validation — sanitize dữ liệu từ form (express-validator)</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">CORS — chỉ cho phép domain frontend được phép gọi API</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="task-group">
-          <div class="task-group-title">Auth Security</div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">bcrypt — hash password admin trước khi lưu</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">JWT expiry + refresh token — token hết hạn tự động</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">httpOnly cookie — tránh XSS đánh cắp token từ JS</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="task-group">
-          <div class="task-group-title">Production Deploy</div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Backend deploy lên Railway hoặc Render</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Frontend deploy lên Vercel hoặc Netlify</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Domain + HTTPS (Cloudflare hoặc nhà cung cấp VN)</div>
-            </div>
-          </div>
-          <div class="task todo">
-            <div class="check"></div>
-            <div>
-              <div class="text">Environment variables — tách biệt .env dev và production</div>
-            </div>
-          </div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Rate limiting — giới hạn request từ 1 IP (express-rate-limit)</div></div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Helmet.js — bảo vệ HTTP headers</div></div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">CORS — chỉ cho phép domain Cloudflare Pages gọi API</div></div></div>
+          <div class="task todo"><div class="check"></div><div><div class="text">Input validation — sanitize dữ liệu (express-validator)</div></div></div>
         </div>
 
         <div class="note-box">
-          <strong>Lưu ý:</strong> Security làm sau cùng khi tính năng đã ổn định.
-          Ưu tiên: Rate limit → CORS → Helmet → bcrypt → JWT httpOnly. Deploy sau khi security đã pass review.
+          <strong>Thứ tự ưu tiên:</strong> Rate limit → CORS → Helmet → Input validation.
+          Làm sau khi tính năng ổn định và đã deploy production.
         </div>
       </div>
 
       <footer>
-        <p>
-          Kohi &nbsp;·&nbsp; コーヒー &nbsp;·&nbsp; Cập nhật lần cuối:
-          03/05/2026
-        </p>
+        <p>Kohi &nbsp;·&nbsp; コーヒー &nbsp;·&nbsp; Cập nhật lần cuối: 03/05/2026</p>
       </footer>
     </div>
   </body>

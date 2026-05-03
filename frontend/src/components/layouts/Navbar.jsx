@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import useCartStore from "../../store/cartStore";
+import useOrderNotifStore from "../../store/orderNotifStore";
 import CartDrawer from "../ui/CartDrawer";
 
 export default function Navbar({ variant = "default" }) {
@@ -10,6 +11,7 @@ export default function Navbar({ variant = "default" }) {
   const [cartOpen, setCartOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const totalItems = useCartStore((state) => state.getTotalItems());
+  const orderNotifCount = useOrderNotifStore((state) => state.count);
   const isLight = variant === "light";
 
   useEffect(() => {
@@ -47,10 +49,36 @@ export default function Navbar({ variant = "default" }) {
             <Link to='/menu' className={linkClass}>
               Menu
             </Link>
+            <Link to='/blog' className={linkClass}>
+              Blog
+            </Link>
           </div>
 
           {/* Right side: cart + hamburger */}
           <div className='flex items-center gap-3'>
+            {/* Order info icon */}
+            <Link to='/order-info' className='relative p-2'>
+              <svg
+                width='22'
+                height='22'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke={iconStroke}
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01'
+                />
+              </svg>
+              {orderNotifCount > 0 && (
+                <span className='absolute -top-1 -right-1 w-4 h-4 text-[10px] font-bold bg-gold text-white rounded-full flex items-center justify-center'>
+                  {orderNotifCount}
+                </span>
+              )}
+            </Link>
+
             {/* Cart icon */}
             <button
               onClick={() => setCartOpen(true)}

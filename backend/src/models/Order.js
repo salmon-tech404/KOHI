@@ -19,7 +19,7 @@ const orderSchema = new mongoose.Schema(
     note: { type: String },
     items: [orderItemSchema],
     total: { type: Number, required: true },
-    status: { type: String, enum: ["pending", "confirmed", "ready", "done"] },
+    status: { type: String, enum: ["pending", "confirmed", "ready", "done", "cancelled"], default: "pending" },
   },
   { timestamps: true },
 );
