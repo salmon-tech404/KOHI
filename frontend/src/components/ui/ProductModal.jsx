@@ -51,7 +51,7 @@ export default function ProductModal({ product, onClose }) {
 
         {/* Nội dung */}
         <div className='p-8'>
-          <p className='mb-2 card-label'>{product.category}</p>
+          <p className='mb-2 card-label'>{product.category?.name}</p>
           <h2 className='mb-3 font-serif text-3xl text-coffee-950'>
             {product.name}
           </h2>
@@ -82,7 +82,7 @@ ProductModal.propTypes = {
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    category: PropTypes.string,
+    category: PropTypes.shape({ name: PropTypes.string }),
     description: PropTypes.string,
   }).isRequired,
   onClose: PropTypes.func.isRequired,
