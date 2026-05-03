@@ -43,9 +43,9 @@ export default function Hero() {
           <Link to='/menu' className='btn-primary'>
             Xem Menu
           </Link>
-          <a href='#featured' className='btn-outline-light'>
+          <Link to='/blog' className='btn-outline-light'>
             Khám phá
-          </a>
+          </Link>
         </motion.div>
       </div>
     </PageHero>
