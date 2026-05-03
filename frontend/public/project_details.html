@@ -265,13 +265,13 @@
           </div>
           <div class="stack-item">
             <div class="label">Deploy — FE</div>
-            <div class="value">Cloudflare Pages</div>
-            <div class="detail">Build: npm run build / dist</div>
+            <div class="value">Vercel</div>
+            <div class="detail">root: frontend / npm run build / dist</div>
           </div>
           <div class="stack-item">
             <div class="label">Deploy — BE</div>
-            <div class="value">Railway</div>
-            <div class="detail">root: backend / npm start</div>
+            <div class="value">Render</div>
+            <div class="detail">root: backend / npm start / free tier</div>
           </div>
         </div>
       </div>
@@ -373,7 +373,7 @@
 
         <div class="task-group">
           <div class="task-group-title">API Routes</div>
-          <div class="task done"><div class="check"></div><div><div class="text">GET /api/products — lấy tất cả sản phẩm available, .populate("category")</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">GET /api/products — lấy sản phẩm available, .populate("category"). ?all=true trả hết (admin)</div></div></div>
           <div class="task done"><div class="check"></div><div><div class="text">POST /PUT /DELETE /api/products — CRUD sản phẩm (requireAuth)</div></div></div>
           <div class="task done"><div class="check"></div><div><div class="text">GET /api/categories — danh sách category (public, sort alpha)</div></div></div>
           <div class="task done"><div class="check"></div><div><div class="text">POST /DELETE /api/categories — tạo/xóa category (requireAuth), bắt lỗi duplicate 11000</div></div></div>
@@ -445,7 +445,7 @@
         <div class="phase-header">
           <div class="phase-number">05</div>
           <div class="phase-title">Admin Dashboard</div>
-          <div class="phase-status status-inprogress">Đang làm</div>
+          <div class="phase-status status-done">Hoàn thành</div>
         </div>
 
         <div class="task-group">
@@ -486,20 +486,19 @@
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Quản lý sản phẩm — Đang làm</div>
+          <div class="task-group-title">Quản lý sản phẩm ✓</div>
           <div class="task done"><div class="check"></div><div>
             <div class="text">Trang /admin/products — danh sách nhóm theo category</div>
             <div class="note">useMemo grouped: categories.map → items: products.filter(p.category._id === cat._id)</div>
           </div></div>
           <div class="task done"><div class="check"></div><div><div class="text">Category header với divider line + đếm số sản phẩm mỗi nhóm</div></div></div>
-          <div class="task done"><div class="check"></div><div><div class="text">Mỗi sản phẩm: ảnh thumbnail + tên + mô tả truncate + giá + nút Sửa/Xóa</div></div></div>
-          <div class="task todo"><div class="check"></div><div><div class="text">Form thêm/sửa sản phẩm — tên, mô tả, giá, URL ảnh, category dropdown</div></div></div>
-          <div class="task todo"><div class="check"></div><div>
-            <div class="text">Category dropdown — cuối danh sách có option "+ Thêm category mới"</div>
-            <div class="note">Chọn __new__ → hiện input nhập tên → createCategory() trước rồi createProduct()</div>
+          <div class="task done"><div class="check"></div><div><div class="text">Mỗi sản phẩm: ảnh thumbnail + tên + mô tả truncate + giá + badge Ẩn + nút Sửa/Xóa</div></div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">Modal form thêm/sửa — tên, mô tả, giá, URL ảnh, category dropdown, checkbox ẩn/hiện</div>
+            <div class="note">Nút + trong dropdown → hiện input thêm category mới ngay trong modal</div>
           </div></div>
-          <div class="task todo"><div class="check"></div><div><div class="text">Xử lý Sửa — load data vào form, gọi updateProduct()</div></div></div>
-          <div class="task todo"><div class="check"></div><div><div class="text">Xử lý Xóa — confirm dialog, gọi deleteProduct()</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Xóa — click lần 1 hiện "Xác nhận / Hủy" inline, click Xác nhận mới gọi deleteProduct()</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">Admin fetch GET /api/products?all=true để thấy cả sản phẩm đang ẩn</div></div></div>
         </div>
 
         <div class="task-group">
@@ -524,9 +523,8 @@
         </div>
 
         <div class="note-box">
-          <strong>Trạng thái (03/05/2026):</strong> Auth + tất cả backend routes hoàn chỉnh.
-          Admin orders UI hoàn chỉnh. Products UI hiển thị xong, đang làm form thêm/sửa/xóa.
-          Tiếp theo: hoàn thiện Products form → Dashboard Overview → Deploy.
+          <strong>Hoàn thành (03/05/2026):</strong> Auth + backend routes + Orders UI + Products CRUD UI đầy đủ.
+          Dashboard Overview (Recharts charts + stats) và Quản lý khách hàng để dành phase sau.
         </div>
       </div>
 
@@ -537,7 +535,7 @@
         <div class="phase-header">
           <div class="phase-number">06</div>
           <div class="phase-title">Deploy — Production</div>
-          <div class="phase-status status-inprogress">Đang làm</div>
+          <div class="phase-status status-done">Hoàn thành</div>
         </div>
 
         <div class="task-group">
@@ -549,37 +547,53 @@
             <div class="text">frontend/.env.local — VITE_API_URL=http://localhost:5000/api (local dev)</div>
           </div></div>
           <div class="task done"><div class="check"></div><div>
-            <div class="text">frontend/.env.production — VITE_API_URL=https://[railway-url]/api (production)</div>
-            <div class="note">Điền Railway URL sau khi deploy backend xong</div>
+            <div class="text">frontend/.env.production — VITE_API_URL=https://kohi-backend-kkog.onrender.com/api</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">frontend/vercel.json — rewrites * → /index.html (React Router SPA)</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">server.js — app.listen() trước mongoose.connect() để Render detect port ngay</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">CORS — ALLOWED_ORIGIN env var, mặc định * nếu không set</div>
           </div></div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Backend — Railway</div>
-          <div class="task todo"><div class="check"></div><div>
-            <div class="text">Tạo project trên railway.app, deploy từ GitHub repo</div>
-            <div class="note">Root directory: backend · Start command: npm start (node src/server.js)</div>
+          <div class="task-group-title">Backend — Render ✓</div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">Deploy từ GitHub repo, root: backend · npm install · npm start</div>
+            <div class="note">Free tier — spin down sau 15 phút idle, wake-up ~50 giây</div>
           </div></div>
-          <div class="task todo"><div class="check"></div><div>
-            <div class="text">Set environment variables: MONGO_URI · JWT_SECRET (Railway tự set PORT)</div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">Env vars: MONGO_URI · JWT_SECRET · ALLOWED_ORIGIN=https://kohi-two.vercel.app</div>
           </div></div>
-          <div class="task todo"><div class="check"></div><div><div class="text">Generate domain Railway → copy URL điền vào .env.production và Cloudflare</div></div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">MongoDB Atlas — Network Access: 0.0.0.0/0 để cho phép IP của Render</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">URL: https://kohi-backend-kkog.onrender.com</div>
+          </div></div>
         </div>
 
         <div class="task-group">
-          <div class="task-group-title">Frontend — Cloudflare Pages</div>
-          <div class="task todo"><div class="check"></div><div>
-            <div class="text">Tạo project trên pages.cloudflare.com, connect GitHub repo</div>
-            <div class="note">Root directory: frontend · Build: npm run build · Output: dist</div>
+          <div class="task-group-title">Frontend — Vercel ✓</div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">Deploy từ GitHub repo, root: frontend · Vite preset · auto-detect</div>
           </div></div>
-          <div class="task todo"><div class="check"></div><div><div class="text">Set env var: VITE_API_URL = https://[railway-url]/api</div></div></div>
-          <div class="task todo"><div class="check"></div><div><div class="text">Deploy và test toàn bộ flow: menu → checkout → order → admin</div></div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">Auto deploy khi push lên main branch</div>
+          </div></div>
+          <div class="task done"><div class="check"></div><div>
+            <div class="text">URL: https://kohi-two.vercel.app</div>
+          </div></div>
         </div>
 
         <div class="note-box">
-          <strong>Lý do chọn:</strong> Cloudflare Pages miễn phí + CDN cực nhanh cho frontend.
-          Railway không sleep sau 15 phút như Render free tier — backend luôn sẵn sàng.
-          MongoDB Atlas đã cloud sẵn, không cần thêm DB service.
+          <strong>Hoàn thành (03/05/2026):</strong> Frontend live trên Vercel, backend live trên Render.
+          Push lên main → tự động deploy cả 2. CORS lock về domain Vercel.
+          Lưu ý: Render free tier sleep sau 15 phút — request đầu sau khi sleep chậm ~50 giây.
         </div>
       </div>
 
@@ -607,7 +621,7 @@
           <div class="task-group-title">API Security</div>
           <div class="task todo"><div class="check"></div><div><div class="text">Rate limiting — giới hạn request từ 1 IP (express-rate-limit)</div></div></div>
           <div class="task todo"><div class="check"></div><div><div class="text">Helmet.js — bảo vệ HTTP headers</div></div></div>
-          <div class="task todo"><div class="check"></div><div><div class="text">CORS — chỉ cho phép domain Cloudflare Pages gọi API</div></div></div>
+          <div class="task done"><div class="check"></div><div><div class="text">CORS — ALLOWED_ORIGIN env var, đã lock về https://kohi-two.vercel.app</div></div></div>
           <div class="task todo"><div class="check"></div><div><div class="text">Input validation — sanitize dữ liệu (express-validator)</div></div></div>
         </div>
 
@@ -618,7 +632,7 @@
       </div>
 
       <footer>
-        <p>Kohi &nbsp;·&nbsp; コーヒー &nbsp;·&nbsp; Cập nhật lần cuối: 03/05/2026</p>
+        <p>Kohi &nbsp;·&nbsp; コーヒー &nbsp;·&nbsp; Cập nhật lần cuối: 03/05/2026 &nbsp;·&nbsp; Phase 5 &amp; 6 hoàn thành</p>
       </footer>
     </div>
   </body>
